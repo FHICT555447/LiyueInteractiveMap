@@ -672,8 +672,8 @@ function formatConditions(conditions) {
 
 // Function to generate HTML for OST sections
 function generateOstSection(ost, conditions) {
-    const youtubeLink = ost.youtubeUrl ? `<a href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}">YouTube</a>` : '';
-    const spotifyLink = ost.spotifyUrl ? `<a href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}">Spotify</a>` : '';
+    const youtubeLink = ost.youtubeUrl ? `<a href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}"><img src="images/Youtube_logo.png" alt="Youtube logo" class="logo-image"/></a>` : '';
+    const spotifyLink = ost.spotifyUrl ? `<a href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}"><img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" class="logo-image"/></a>` : '';
     const albumImage = ost.albumImage ? `<img src="images/albums/${ost.albumImage}" alt="Album cover for ${ost.name}" class="album-image">` : '';
 
     return `
@@ -753,4 +753,24 @@ function findRegion(regionName, config) {
 function hideInfoBox() {
     infoBox.style.visibility = 'hidden';
     infoBoxText.style.visibility = 'hidden';
+}
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("infoSideBox").style.width = "375px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("infoSideBox").style.width = "0";
+}
+
+function toggleSection(id) {
+    const content = document.getElementById(id);
+    content.style.display = content.style.color === 'blue';
+}
+
+function toggleSubregion(id) {
+    const osts = document.getElementById(id);
+    osts.style.display = osts.style.display === 'none' ? 'block' : 'none';
 }
