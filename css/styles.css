@@ -69,15 +69,16 @@ span {
     /*375px*/
     height: 100%;
     z-index: 2;
-    background-color: #111;
+    background-color: white;
     /* Black*/
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 60px;
+    padding-top: 20px;
     /* Place content 60px from the top */
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidenav */
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 #openNavBtn{
@@ -111,6 +112,10 @@ span {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.sidebar-section{
+    min-height: 48px;
 }
 
 .sidebar-section h2 {

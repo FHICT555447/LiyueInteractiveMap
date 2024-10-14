@@ -852,6 +852,54 @@ function findRegion(regionName, config) {
     return null;
 }
 
+function searchOSTs() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const searchResults = document.getElementById('searchResults');
+    searchResults.innerHTML = '';
+
+    if (input === '') {
+        searchResults.style.display = 'none';
+        return;
+    }
+
+    searchResults.style.display = 'block';
+    const results = [];
+
+    for (const region in regionConfig) {
+        for (const subregion in regionConfig[region].subRegions) {
+            regionConfig[region].subRegions[subregion].conditions.forEach(condition => {
+                condition.ost.forEach(ost => {
+                    if (ost.name.toLowerCase().includes(input)) {
+                        results.push(ost);
+                    }
+                });
+            });
+        }
+    }
+
+    if (results.length === 0) {
+        searchResults.innerHTML = '<p>No results found.</p>';
+    } else {
+        results.forEach(ost => {
+            const ostElement = document.createElement('div');
+            const youtubeLink = ost.youtubeUrl ? `<a href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}"><img src="images/Youtube_logo.png" alt="Youtube logo" class="logo-image"/></a>` : '';
+            const spotifyLink = ost.spotifyUrl ? `<a href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}"><img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" class="logo-image"/></a>` : '';
+            const albumImage = ost.albumImage ? `<img src="images/albums/${ost.albumImage}" alt="Album cover for ${ost.name}" class="album-image">` : '';
+            ostElement.className = 'ost';
+            ostElement.innerHTML = `
+                    <div class="ost-section">
+                        <h3>${albumImage} ${ost.name}</h3>
+                        <div class="ost-buttons">
+                            ${youtubeLink}
+                            ${spotifyLink}
+                        </div>
+                    </div>
+            `;
+            searchResults.appendChild(ostElement);
+        });
+    }
+}
+
 function hideInfoBox() {
     infoBox.style.visibility = 'hidden';
     infoBoxText.style.visibility = 'hidden';
@@ -867,12 +915,4 @@ function closeNav() {
     document.getElementById("infoSideBox").style.width = "0";
 }
 
-function toggleSection(id) {
-    const content = document.getElementById(id);
-    content.style.display = content.style.color === 'blue';
-}
-
-function toggleSubregion(id) {
-    const osts = document.getElementById(id);
-    osts.style.display = osts.style.display === 'none' ? 'block' : 'none';
-}
+document.getElementById('searchResults').style.display = 'none';

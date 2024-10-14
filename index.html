@@ -133,34 +133,8 @@
             </div>
             <div id="infoSideBox">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div id="sidebarLisha" class="sidebar-section">
-                    <h2 onclick="toggleSection('lishaContent')">Lisha</h2>
-                    <div id="lishaContent" class="content"></div>
-                </div>
-                <div id="sidebarSeaOfClouds" class="sidebar-section">
-                    <h2 onclick="toggleSection('seaOfCloudsContent')">Sea of Clouds</h2>
-                    <div id="seaOfCloudsContent" class="content"></div>
-                </div>
-                <div id="sidebarQiongjiEstuaryRegion" class="sidebar-section">
-                    <h2 onclick="toggleSection('QiongjiEstuaryRegionContent')">Qiongji Estuary Region</h2>
-                    <div id="QiongjiEstuaryRegionContent" class="content"></div>
-                </div>
-                <div id="sidebarBaishuPlain" class="sidebar-section">
-                    <h2 onclick="toggleSection('baishuPlainContent')">Baishu Plain</h2>
-                    <div id="baishuPlainContent" class="content"></div>
-                </div>
-                <div id="sidebarMinlin" class="sidebar-section">
-                    <h2 onclick="toggleSection('minlinContent')">Minlin</h2>
-                    <div id="minlinContent" class="content"></div>
-                </div>
-                <div id="sidebarChasm" class="sidebar-section">
-                    <h2 onclick="toggleSection('chasmContent')">Chasm</h2>
-                    <div id="chasmContent" class="content"></div>
-                </div>
-                <div id="sidebarCombat" class="sidebar-section">
-                    <h2 onclick="toggleSection('combatContent')">Combat</h2>
-                    <div id="combatContent" class="content"></div>
-                </div>
+                <input style="margin: 5px;" type="text" id="searchInput" placeholder="Search OSTs..." oninput="searchOSTs()">
+                <div id="searchResults" class="search-results"></div>
             </div>
 
             <span onclick="openNav()" id="openNavBtn">&#9776; open</span>
