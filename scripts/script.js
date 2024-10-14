@@ -339,6 +339,39 @@ const regionConfig = {
         ],
         backgroundImage: 'BishuiPlain.jpg',
         subRegions: {
+            "Dihua Marsh": {
+                name: 'Dihua Marsh',
+                conditions: [
+                    {
+                        conditions: [['any']], ost: [
+                            { name: 'Winding River', youtubeUrl: 'https://www.youtube.com/watch?v=RV09JXgtsJw', spotifyUrl: 'https://open.spotify.com/track/35SoEGEXsaNnfi8PsT8xEC?si=ef69ba6bec3540d7', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Blossoms Across the Valley', youtubeUrl: 'https://www.youtube.com/watch?v=8eH4vN4wgn0', spotifyUrl: 'https://open.spotify.com/track/5E5pYqNZqlRWYxr7OwQTQB?si=a07bdf8a9476494f', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: ' Melodious Flute', youtubeUrl: 'https://www.youtube.com/watch?v=kiQIUKYdVfo', spotifyUrl: 'https://open.spotify.com/track/2yK5MUkSDKlmtglXrOEU7I?si=665d37a476134382', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Vague Whispers', youtubeUrl: 'https://www.youtube.com/watch?v=VNBmCln8m6s', spotifyUrl: 'https://open.spotify.com/track/2XLG1ZwKkG9UUfDMjuwAeH?si=2856b5f4839a4189', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    },
+                    {
+                        conditions: [['day', 'sunny']], ost: [
+                            { name: 'Mild Waves', youtubeUrl: 'https://www.youtube.com/watch?v=k--D5PIDt2Y', spotifyUrl: 'https://open.spotify.com/track/0CvE0nJBSZunRT4RKsjUxL?si=1d4b1823945d44b6', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Rhythm Amidst the Reeds', youtubeUrl: 'https://www.youtube.com/watch?v=HcV-l5MEEJc', spotifyUrl: 'https://open.spotify.com/track/6fDtrqUmd9Seufl2hTli7P?si=9c6354a43c9944ba', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Flows of Jade-Like Water', youtubeUrl: 'https://www.youtube.com/watch?v=ZLRGsr17llc', spotifyUrl: 'https://open.spotify.com/track/3yNVoNAkXe3aUjkAaWthwU?si=f47f41afa04a4d7d', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Stroll in the Shadows', youtubeUrl: 'https://www.youtube.com/watch?v=ngoQ3pzat7I', spotifyUrl: 'https://open.spotify.com/track/3Dod8nDDtj2WGZ02w7uc3T?si=1e0a7c0759ee4f4c', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    },
+                    {
+                        conditions: [['night'], ['rain']], ost: [
+                            { name: 'Flow of Mildness', youtubeUrl: 'https://www.youtube.com/watch?v=LrG3sjNqtfg', spotifyUrl: 'https://open.spotify.com/track/2hI5tToSrWSBRJUfsrvetx?si=99b144f730594c98', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Legends Swept Away', youtubeUrl: 'https://www.youtube.com/watch?v=-ZqthCkVluo', spotifyUrl: 'https://open.spotify.com/track/0AT8UeyDydzBKrhCcQGQew?si=6ebede0b2dae4747', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    },
+                    {
+                        conditions: [['domain']], ost: [
+                            { name: 'Humming Amidst Rocks', youtubeUrl: 'https://www.youtube.com/watch?v=tzaJaCtBnDU', spotifyUrl: 'https://open.spotify.com/track/7rNi6aLecOfHGdVW8iUWo1?si=45e36763c02e4f3f', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Secluded Sanctuary', youtubeUrl: 'https://www.youtube.com/watch?v=MratXajnczU', spotifyUrl: 'https://open.spotify.com/track/7KhytPM9AUTun2nGXGP3iY?si=413f30f7fba84d4c', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    }
+                ]
+            },
             "Sal Terrae": {
                 name: 'Sal Terrae',
                 conditions: [
@@ -565,6 +598,75 @@ const regionConfig = {
                     }
                 ],
                 backgroundImage: 'Nantianmen.jpg'
+            },
+            "Tianqiu Valley": {
+                name: 'Tianqiu Valley',
+                conditions: [
+                    {
+                        conditions: [['clear sky']], ost: [
+                            { name: 'Plain of Nostalgia', youtubeUrl: 'https://www.youtube.com/watch?v=lbsJ6M-dn9c', spotifyUrl: 'https://open.spotify.com/track/5JS9RQZ8urxL87nVqsEy7v?si=48d09f9cc48b412a', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: "Adeptus' Solace", youtubeUrl: 'https://www.youtube.com/watch?v=Mi4Mjezm3Os', spotifyUrl: 'https://open.spotify.com/track/0h7jrdRdNBclcJruULyNwC?si=40ea168bcba54ede', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Emerging Clouds', youtubeUrl: 'https://www.youtube.com/watch?v=GG0aczBNQZc', spotifyUrl: 'https://open.spotify.com/track/7wCBY8lpveoheSO7FXVsw5?si=b3b89693e2584bd2', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Drink With a Hermit', youtubeUrl: 'https://www.youtube.com/watch?v=9zkCxxO4DL8', spotifyUrl: 'https://open.spotify.com/track/2UuZB5dZTjmJA5I6zZsHTJ?si=28d76575229e40c4' }
+                        ]
+                    },
+                    {
+                        conditions: [['day', 'sunny']], ost: [
+                            { name: 'Red Leaf on the Chessboard', youtubeUrl: 'https://www.youtube.com/watch?v=3F_aCU_v1_g', spotifyUrl: 'https://open.spotify.com/track/0ko4YyVbv7ySlzqy8iKdpy?si=4088733011004446', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    },
+                    {
+                        conditions: [['rain']], ost: [
+                            { name: 'Secluded Sanctuary', youtubeUrl: 'https://www.youtube.com/watch?v=MratXajnczU', spotifyUrl: 'https://open.spotify.com/track/7KhytPM9AUTun2nGXGP3iY?si=413f30f7fba84d4c', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    }
+                ]
+            },
+            "Cuijue Slope": {
+                name: "Cuijue Slope",
+                conditions: [
+                    {
+                        conditions: [['clear sky']], ost: [
+                            { name: 'Plain of Nostalgia', youtubeUrl: 'https://www.youtube.com/watch?v=lbsJ6M-dn9c', spotifyUrl: 'https://open.spotify.com/track/5JS9RQZ8urxL87nVqsEy7v?si=48d09f9cc48b412a', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: "Adeptus' Solace", youtubeUrl: 'https://www.youtube.com/watch?v=Mi4Mjezm3Os', spotifyUrl: 'https://open.spotify.com/track/0h7jrdRdNBclcJruULyNwC?si=40ea168bcba54ede', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Emerging Clouds', youtubeUrl: 'https://www.youtube.com/watch?v=GG0aczBNQZc', spotifyUrl: 'https://open.spotify.com/track/7wCBY8lpveoheSO7FXVsw5?si=b3b89693e2584bd2', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Drink With a Hermit', youtubeUrl: 'https://www.youtube.com/watch?v=9zkCxxO4DL8', spotifyUrl: 'https://open.spotify.com/track/2UuZB5dZTjmJA5I6zZsHTJ?si=28d76575229e40c4' }
+                        ]
+                    },
+                    {
+                        conditions: [['day', 'sunny']], ost: [
+                            { name: 'Red Leaf on the Chessboard', youtubeUrl: 'https://www.youtube.com/watch?v=3F_aCU_v1_g', spotifyUrl: 'https://open.spotify.com/track/0ko4YyVbv7ySlzqy8iKdpy?si=4088733011004446', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    },
+                    {
+                        conditions: [['rain']], ost: [
+                            { name: 'Secluded Sanctuary', youtubeUrl: 'https://www.youtube.com/watch?v=MratXajnczU', spotifyUrl: 'https://open.spotify.com/track/7KhytPM9AUTun2nGXGP3iY?si=413f30f7fba84d4c', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    }
+                ]
+            },
+            "Jueyun Karst": {
+                name: "Jueyun Karst",
+                conditions: [
+                    {
+                        conditions: [['clear sky']], ost: [
+                            { name: 'Plain of Nostalgia', youtubeUrl: 'https://www.youtube.com/watch?v=lbsJ6M-dn9c', spotifyUrl: 'https://open.spotify.com/track/5JS9RQZ8urxL87nVqsEy7v?si=48d09f9cc48b412a', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: "Adeptus' Solace", youtubeUrl: 'https://www.youtube.com/watch?v=Mi4Mjezm3Os', spotifyUrl: 'https://open.spotify.com/track/0h7jrdRdNBclcJruULyNwC?si=40ea168bcba54ede', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Emerging Clouds', youtubeUrl: 'https://www.youtube.com/watch?v=GG0aczBNQZc', spotifyUrl: 'https://open.spotify.com/track/7wCBY8lpveoheSO7FXVsw5?si=b3b89693e2584bd2', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' },
+                            { name: 'Drink With a Hermit', youtubeUrl: 'https://www.youtube.com/watch?v=9zkCxxO4DL8', spotifyUrl: 'https://open.spotify.com/track/2UuZB5dZTjmJA5I6zZsHTJ?si=28d76575229e40c4' }
+                        ]
+                    },
+                    {
+                        conditions: [['day', 'sunny']], ost: [
+                            { name: 'Red Leaf on the Chessboard', youtubeUrl: 'https://www.youtube.com/watch?v=3F_aCU_v1_g', spotifyUrl: 'https://open.spotify.com/track/0ko4YyVbv7ySlzqy8iKdpy?si=4088733011004446', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    },
+                    {
+                        conditions: [['rain']], ost: [
+                            { name: 'Secluded Sanctuary', youtubeUrl: 'https://www.youtube.com/watch?v=MratXajnczU', spotifyUrl: 'https://open.spotify.com/track/7KhytPM9AUTun2nGXGP3iY?si=413f30f7fba84d4c', albumImage: 'Jade_Moon_Upon_a_Sea_of_Clouds.webp' }
+                        ]
+                    }
+                ]
             }
         }
     }
