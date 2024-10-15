@@ -675,8 +675,8 @@ const regionConfig = {
 // Zoom function
 svg.addEventListener('wheel', function (event) {
     event.preventDefault();
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
+    const mouseX = event.clientX - svg.getBoundingClientRect().left;
+    const mouseY = event.clientY - svg.getBoundingClientRect().top;
 
     const zoomFactor = 0.025; // Adjust zoom sensitivity
     let newScale = event.deltaY < 0 ? scale * (1 + zoomFactor) : scale * (1 - zoomFactor);
@@ -684,17 +684,11 @@ svg.addEventListener('wheel', function (event) {
     // Apply min and max scale limits
     newScale = Math.min(Math.max(newScale, minScale), maxScale);
 
-    const zoomedX = mouseX / scale + originX;
-    const zoomedY = mouseY / scale + originY;
+    const zoomedX = (mouseX - originX * scale) / scale;
+    const zoomedY = (mouseY - originY * scale) / scale;
 
-    originX = zoomedX - mouseX / newScale;
-    originY = zoomedY - mouseY / newScale;
-    console.log("MouseX: " + mouseX);
-    console.log("MouseY: " + mouseY);
-    console.log("ZoomedX: " + zoomedX);
-    console.log("ZoomedY: " + zoomedY);
-    console.log("OriginX: " + originX);
-    console.log("OriginY: " + originY);
+    originX = (mouseX - zoomedX * newScale) / newScale;
+    originY = (mouseY - zoomedY * newScale) / newScale;
 
     scale = newScale;
     mapGroup.setAttribute('transform', `translate(${originX}, ${originY}) scale(${scale})`);
@@ -774,8 +768,8 @@ function formatConditions(conditions) {
 
 // Function to generate HTML for OST sections
 function generateOstSection(ost, conditions) {
-    const youtubeLink = ost.youtubeUrl ? `<a href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}"><img src="images/Youtube_logo.png" alt="Youtube logo" class="logo-image"/></a>` : '';
-    const spotifyLink = ost.spotifyUrl ? `<a href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}"><img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" class="logo-image"/></a>` : '';
+    const youtubeLink = ost.youtubeUrl ? `<a class="ost-link" href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}"><img src="images/Youtube_logo.png" alt="Youtube logo" class="logo-image"/></a>` : '';
+    const spotifyLink = ost.spotifyUrl ? `<a class="ost-link" href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}"><img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" class="logo-image"/></a>` : '';
     const albumImage = ost.albumImage ? `<img src="images/albums/${ost.albumImage}" alt="Album cover for ${ost.name}" class="album-image">` : '';
 
     return `
@@ -863,27 +857,27 @@ function searchOSTs() {
     }
 
     searchResults.style.display = 'block';
-    const results = [];
+    const results = new Map();
 
     for (const region in regionConfig) {
         for (const subregion in regionConfig[region].subRegions) {
             regionConfig[region].subRegions[subregion].conditions.forEach(condition => {
                 condition.ost.forEach(ost => {
-                    if (ost.name.toLowerCase().includes(input)) {
-                        results.push(ost);
+                    if (ost.name.toLowerCase().includes(input) && !results.has(ost.name)) {
+                        results.set(ost.name, ost);
                     }
                 });
             });
         }
     }
 
-    if (results.length === 0) {
+    if (results.size === 0) {
         searchResults.innerHTML = '<p>No results found.</p>';
     } else {
         results.forEach(ost => {
             const ostElement = document.createElement('div');
-            const youtubeLink = ost.youtubeUrl ? `<a href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}"><img src="images/Youtube_logo.png" alt="Youtube logo" class="logo-image"/></a>` : '';
-            const spotifyLink = ost.spotifyUrl ? `<a href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}"><img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" class="logo-image"/></a>` : '';
+            const youtubeLink = ost.youtubeUrl ? `<a class="ost-link" href="${ost.youtubeUrl}" target="_blank" aria-label="YouTube link to ${ost.name}"><img src="images/Youtube_logo.png" alt="Youtube logo" class="logo-image"/></a>` : '';
+            const spotifyLink = ost.spotifyUrl ? `<a class="ost-link" href="${ost.spotifyUrl}" target="_blank" class="spotify" aria-label="Spotify link to ${ost.name}"><img src="images/Spotify_logo_without_text.svg.png" alt="Spotify logo" class="logo-image"/></a>` : '';
             const albumImage = ost.albumImage ? `<img src="images/albums/${ost.albumImage}" alt="Album cover for ${ost.name}" class="album-image">` : '';
             ostElement.className = 'ost';
             ostElement.innerHTML = `
@@ -907,7 +901,7 @@ function hideInfoBox() {
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("infoSideBox").style.width = "375px";
+    document.getElementById("infoSideBox").style.width = "300px";
 }
 
 /* Set the width of the side navigation to 0 */
